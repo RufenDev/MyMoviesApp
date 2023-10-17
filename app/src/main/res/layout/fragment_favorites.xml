@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FavoritesFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="?attr/actionBarSize"
+        android:visibility="invisible"
+        tools:visibility="gone" />
+
+    <include
+        android:id="@+id/favoritesEmptyListScreen"
+        layout="@layout/layout_connection_error"
+        tools:visibility="gone" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loadingFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLoadingFavoriteInvisibleOne"
+                style="@style/FavoriteLoadingInvisibleStyle"
+                app:layout_constraintEnd_toStartOf="@id/ivLoadingFavoriteInvisibleTwo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLoadingFavoriteInvisibleTwo"
+                style="@style/FavoriteLoadingInvisibleStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivLoadingFavoriteInvisibleOne"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLoadingFavoriteInvisibleThree"
+                style="@style/FavoriteLoadingInvisibleStyle"
+                app:layout_constraintEnd_toStartOf="@id/ivLoadingFavoriteInvisibleFour"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivLoadingFavoriteInvisibleOne" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLoadingFavoriteInvisibleFour"
+                style="@style/FavoriteLoadingInvisibleStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivLoadingFavoriteInvisibleThree"
+                app:layout_constraintTop_toBottomOf="@id/ivLoadingFavoriteInvisibleTwo" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/loading_background"
+                app:layout_constraintTop_toTopOf="@id/ivLoadingFavoriteInvisibleOne"
+                app:layout_constraintEnd_toEndOf="@id/ivLoadingFavoriteInvisibleOne"
+                app:layout_constraintStart_toStartOf="@id/ivLoadingFavoriteInvisibleOne"
+                app:layout_constraintBottom_toBottomOf="@id/ivLoadingFavoriteInvisibleOne"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/loading_background"
+                app:layout_constraintTop_toTopOf="@id/ivLoadingFavoriteInvisibleTwo"
+                app:layout_constraintEnd_toEndOf="@id/ivLoadingFavoriteInvisibleTwo"
+                app:layout_constraintStart_toStartOf="@id/ivLoadingFavoriteInvisibleTwo"
+                app:layout_constraintBottom_toBottomOf="@id/ivLoadingFavoriteInvisibleTwo"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/loading_background"
+                app:layout_constraintTop_toTopOf="@id/ivLoadingFavoriteInvisibleThree"
+                app:layout_constraintEnd_toEndOf="@id/ivLoadingFavoriteInvisibleThree"
+                app:layout_constraintStart_toStartOf="@id/ivLoadingFavoriteInvisibleThree"
+                app:layout_constraintBottom_toBottomOf="@id/ivLoadingFavoriteInvisibleThree"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/loading_background"
+                app:layout_constraintTop_toTopOf="@id/ivLoadingFavoriteInvisibleFour"
+                app:layout_constraintEnd_toEndOf="@id/ivLoadingFavoriteInvisibleFour"
+                app:layout_constraintStart_toStartOf="@id/ivLoadingFavoriteInvisibleFour"
+                app:layout_constraintBottom_toBottomOf="@id/ivLoadingFavoriteInvisibleFour"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSearchedInvisibleCover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/reservoir_dogs"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/ivSearchedInvisibleCover"
+        app:layout_constraintEnd_toEndOf="@id/ivSearchedInvisibleCover"
+        app:layout_constraintStart_toStartOf="@id/ivSearchedInvisibleCover"
+        app:layout_constraintTop_toTopOf="@id/ivSearchedInvisibleCover">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSearchedMovieCover"
+            android:contentDescription="@string/more_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:foreground="?attr/selectableItemBackground"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/image_not_found" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSearchedMovieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingHorizontal="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/abs_white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="Spider-Man: Across the Spider-Verse"
+            tools:visibility="visible" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

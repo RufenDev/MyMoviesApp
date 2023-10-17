@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSeeMoreInvisible"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/reservoir_dogs"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSeeMoreImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/ivSeeMoreInvisible"
+            app:layout_constraintEnd_toEndOf="@id/ivSeeMoreInvisible"
+            app:layout_constraintStart_toStartOf="@id/ivSeeMoreInvisible"
+            app:layout_constraintTop_toTopOf="@id/ivSeeMoreInvisible"
+            tools:src="@drawable/image_not_found" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/loadingSeeMoreItem"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/ivSeeMoreInvisible"
+            app:layout_constraintEnd_toEndOf="@id/ivSeeMoreInvisible"
+            app:layout_constraintStart_toStartOf="@id/ivSeeMoreInvisible"
+            app:layout_constraintTop_toTopOf="@id/ivSeeMoreInvisible">
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/background"
+                android:layout_height="match_parent" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSeeMoreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAlignment="center"
+        android:textColor="@color/title_color"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="Spiderman: Across the Spider-verse" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSeeMoreSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textAlignment="center"
+        android:textColor="@color/subtitle_color"
+        android:textSize="12sp"
+        android:visibility="gone"
+        tools:text="Spiderman: Across the Spider-verse"
+        tools:visibility="visible" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

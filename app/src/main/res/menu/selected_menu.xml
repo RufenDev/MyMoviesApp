@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menuMoreInformation"
+        android:title="@string/more_info" />
+
+    <item android:id="@+id/menuFavorite"
+        android:title="@string/add_to_favorites" />
+
+    <item android:id="@+id/menuCopyName"
+        android:title="@string/copy_movie_title" />
+
+    <item android:id="@+id/menuSaveImage"
+        android:title="@string/save_poster" />
+
+</menu>

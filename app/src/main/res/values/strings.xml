@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">MyMoviesApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="home_title">Inicio</string>
+    <string name="search_title">Buscar</string>
+    <string name="discover_title">Descubre</string>
+    <string name="favorites_title">Favoritos</string>
+
+    <string name="more_info">Mas informacion</string>
+    <string name="save_poster">Guardar poster</string>
+    <string name="copy_movie_title">Copiar título</string>
+
+    <string name="copied_to_clipboard">Copiado al portapapeles</string>
+
+    <string name="error_connection_title">Sin conexión</string>
+    <string name="error_connection_subtitle">No tienes internet, comprueba tu conexión</string>
+
+    <string name="init_download_image">Iniciando la descarga</string>
+    <string name="error_download_image">Descarga fallida</string>
+    <string name="error_search">Sin resultados para "%s"</string>
+    <string name="error_search_empty">Debe ingresar un nombre</string>
+    <string name="search_subtitle">Ingrese su película deseada</string>
+
+    <string name="add_to_favorites">Agregar a favoritos</string>
+    <string name="added_to_favorites">Agregado a favoritos</string>
+    <string name="remove_from_favorites">Eliminar de favoritos</string>
+    <string name="removed_from_favorites">Eliminado de favoritos</string>
+    <string name="deleted_from_favorites">La película se ha eliminado de favoritos</string>
+
+    <string name="look_more">Ver más</string>
+    <string name="discover_this_genre">Ver más sobre este género</string>
+
+    <string name="see_options">Ver opciones</string>
+
+    <string name="fab_up_description">Subir al comienzo</string>
+    <string name="search_description">Buscar películas</string>
+    <string name="back_description">Volver al inicio</string>
+    <string name="popular_genre">Populares</string>
+
+    <string name="example_overview">A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground "fight clubs" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.</string>
+    <string name="movie_synopsis">Sinopsis</string>
+    <string name="movie_synopsis_read_more">Leer más</string>
+    <string name="movie_synopsis_read_less">Leer menos</string>
+    <string name="movie_cast">Elenco</string>
+    <string name="details_see_more">Ver más</string>
+    <string name="details_recommended">Recomendados</string>
+
+    <string name="movie_not_found_title">Película no encontrada</string>
+    <string name="movie_not_found_subtitle">La película seleccionada no fue encontrada. Por favor, vuelva a intentarlo</string>
+
+    <string name="movie_genre_not_found_title">Género no encontradp</string>
+    <string name="movie_genre_not_found_subtitle">El género seleccionada no fue encontrado. Por favor, vuelva a intentarlo</string>
+
+    <string name="see_poster">Ver poster</string>
+    <string name="copy_actor_name">Copiar nombre del actor</string>
+    <string name="copy_actor_character">Copiar nombre del personaje</string>
+    <string name="save_actor_photo">Guardar foto</string>
+    <string name="movie_production_title">Producción</string>
+    <string name="movie_directors_title">Dirección</string>
+    <string name="movie_productors_title">Producción</string>
+    <string name="movie_screenplay_title">Guión</string>
+    <string name="movie_companies_title">Compañías</string>
+    <string name="movie_homepage_title">Página</string>
+    <string name="empty_favorite_list_title">Lista vacía</string>
+    <string name="empty_favorite_list_subtitle">Tu lista de favoritos se encuentra vacía, agrega películas a tu lista.</string>
+    <string name="undo_action">Deshacer</string>
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="background">@color/black</color>
+    <color name="menu_background">@color/abs_black</color>
+    <color name="title_color">@color/white</color>
+    <color name="subtitle_color">#C8C8C8</color>
+    <color name="button_color">@color/darkgray</color>
+    <color name="loading_background">#323232</color>
+    <color name="ripple_color">#33F5F5F5</color>
+
+</resources>

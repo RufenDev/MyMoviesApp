@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menuDetailsCopy"
+        android:title="@string/copy_movie_title" />
+
+    <item android:id="@+id/menuDetailsFavorite"
+        android:title="@string/add_to_favorites" />
+
+    <item android:id="@+id/menuDetailsPoster"
+        android:title="@string/see_poster" />
+
+    <item android:id="@+id/menuDetailsDownload"
+        android:title="@string/save_poster" />
+</menu>

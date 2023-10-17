@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/background"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFavoriteInvisible"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/reservoir_dogs"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/layoutFavoritePoster"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/ivFavoriteInvisible"
+            app:layout_constraintEnd_toEndOf="@id/ivFavoriteInvisible"
+            app:layout_constraintStart_toStartOf="@id/ivFavoriteInvisible"
+            app:layout_constraintTop_toTopOf="@id/ivFavoriteInvisible"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivFavoritePoster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/reservoir_dogs" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFavoriteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="Spiderman: Across the spider verse"
+                tools:visibility="visible" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/favorite_movie_gradient"
+                android:paddingHorizontal="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="16dp">
+
+                <CheckBox
+                    android:id="@+id/checkFavorite"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end"
+                    android:background="@drawable/add_to_favorite_button"
+                    android:button="@android:color/transparent"
+                    android:buttonTint="@color/white"
+                    android:checked="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </FrameLayout>
+
+            <View
+                android:id="@+id/favoriteSelectedBackground"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:background="@color/selected_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </FrameLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/layoutFavoriteLoading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/ivFavoriteInvisible"
+            app:layout_constraintEnd_toEndOf="@id/ivFavoriteInvisible"
+            app:layout_constraintStart_toStartOf="@id/ivFavoriteInvisible"
+            app:layout_constraintTop_toTopOf="@id/ivFavoriteInvisible"
+            tools:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/loading_background" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

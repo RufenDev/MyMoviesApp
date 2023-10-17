@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/detailsAppBar"
+        android:layout_width="match_parent"
+        android:background="@android:color/transparent"
+        android:layout_height="384dp"
+        android:fitsSystemWindows="true"
+        android:visibility="gone"
+        app:elevation="8dp"
+        tools:visibility="visible">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/detailsCollapsing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@android:color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:statusBarScrim="@color/details_semitransparent"
+            app:titleEnabled="false">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDetailsMovieCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/reservoir_dogs"
+                android:visibility="gone"
+                app:layout_collapseMode="parallax"
+                tools:visibility="gone" />
+
+            <View
+                android:id="@+id/detailsAppbarShadow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/details_cover_gradient"
+                android:fitsSystemWindows="true"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/detailsToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_gravity="bottom">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnDetailsBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="8dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/details_circle_button"
+                    android:contentDescription="@string/back_description"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_arrow_left"
+                    android:tint="@color/abs_white"
+                    tools:ignore="ImageContrastCheck,TouchTargetSizeCheck" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnDetailsOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/details_circle_button"
+                    android:contentDescription="@string/back_description"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_more_options"
+                    android:tint="@color/abs_white"
+                    tools:ignore="ImageContrastCheck,TouchTargetSizeCheck" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/detailsAppbarLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:visibility="visible"
+                tools:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/loading_background"
+                    android:fitsSystemWindows="true" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/detailsNestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:overScrollMode="never"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:visibility="visible">
+
+        <include
+            android:id="@+id/detailsLayout"
+            layout="@layout/layout_movie_details" />
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/pbDetailsLoading"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/orange"
+        android:visibility="visible"
+        tools:visibility="gone" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeDetailsError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <include
+            android:id="@+id/swipeLayout"
+            layout="@layout/layout_connection_error" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
