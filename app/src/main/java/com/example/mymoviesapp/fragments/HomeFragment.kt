@@ -245,18 +245,17 @@ class HomeFragment : Fragment() {
 
             val popup = PopupMenu(context, view)
             popup.inflate(R.menu.selected_menu)
-            var isMovieInFavorites: Boolean = false
+
+            var isMovieInFavorites = false
+
             lifecycleScope.launch(Dispatchers.IO) {
                 isMovieInFavorites = roomDAO.isMovieInFavorites(movie.id)
+
+                val msj = if (isMovieInFavorites) R.string.remove_from_favorites
+                    else R.string.add_to_favorites
+
                 withContext(Dispatchers.Main) {
-                    popup.menu.findItem(R.id.menuFavorite).title =
-                        getString(
-                            if (isMovieInFavorites) {
-                                R.string.remove_from_favorites
-                            } else {
-                                R.string.add_to_favorites
-                            }
-                        )
+                    popup.menu.findItem(R.id.menuFavorite).title = getString(msj)
                 }
             }
 
@@ -290,24 +289,27 @@ class HomeFragment : Fragment() {
                     else -> false
                 }
             }
+
             popup.show()
         }
     }
 
     private fun addToFavorites(movie: MovieResult, isMovieInFavorites: Boolean): Boolean {
         lifecycleScope.launch(Dispatchers.IO) {
-            if (isMovieInFavorites) {
+            val msj = if (isMovieInFavorites) {
                 roomDAO.removeMovieById(movie.id)
+                R.string.removed_from_favorites
 
             } else {
                 val lastPosition = roomDAO.getLastPosition() + 1
                 roomDAO.addMovieToFavorites(
                     FavoriteMovie(movie.id, movie.title, movie.posterPath, lastPosition, true)
                 )
+                R.string.add_to_favorites
             }
+
             withContext(Dispatchers.Main) {
-                Toast.makeText(context, getString(R.string.added_to_favorites), Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(context, getString(msj), Toast.LENGTH_SHORT).show()
             }
         }
         return true
