@@ -127,13 +127,7 @@ class FavoritesFragment : Fragment() {
     }
 
     private fun addToFavorites(action: AddToFavorite) {
-        Log.i("ññ", "")
-        Log.i("ññ", "AddToFavorite -> Add=${action.add}, Title=${action.movie.title}")
-
         favoriteList.find { it.id == action.movie.id }?.isInFavorite = action.add
-
-        Log.i("ññ", "")
-        adapter.updateFavoriteList(favoriteList)
     }
 
     private suspend fun saveFavoriteList() {
@@ -155,7 +149,7 @@ class FavoritesFragment : Fragment() {
                 adapter.updateFavoriteList(filteredList)
 
             } else {
-                adapter.updateFavoriteList(favoriteList)
+                adapter.updateFavoriteList(favoriteList.toList())
             }
         }
     }
@@ -176,7 +170,6 @@ class FavoritesFragment : Fragment() {
     fun changeDisplay(smallDisplay: Boolean) {
         binding.rvFavorites.layoutManager = GridLayoutManager(context, if (smallDisplay) 3 else 2)
         adapter.updateFavoriteList(favoriteList.toList())
-        Log.i("ññ", "changeDisplay ->${favoriteList.log()}")
     }
 
     override fun onPause() {
@@ -213,7 +206,7 @@ class FavoritesFragment : Fragment() {
                 viewHolder.adapterPosition,
                 target.adapterPosition
             )
-            return false
+            return true
         }
 
         override fun onSelectedChanged(viewHolder: ViewHolder?, actionState: Int) {
@@ -248,12 +241,15 @@ class FavoritesFragment : Fragment() {
                 if (isStartValid && isEndValid) {
                     val temp = favoriteList.minus(favoriteList[it]).toMutableList()
                     temp.add(end, favoriteList[it])
-                    favoriteList = temp
+                    favoriteList = temp.sortAsc()
 
-                    Log.i("ññ", "")
-                    Log.i("ññ","clearView().movie -> title=${favoriteList[end].title}, start=$it, end=$end")
-                    Log.i("ññ","EndList -> ${favoriteList.log()}")
+                } else {
+                    Log.e("ññ", "CLEARVIEW ERROR: Start and End values")
+                    Log.e("ññ", "start=$start, end=$end")
                 }
+            } ?: kotlin.run {
+                Log.e("ññ", "CLEARVIEW ERROR: Start empty value")
+                Log.e("ññ", "start=$start")
             }
         }
 

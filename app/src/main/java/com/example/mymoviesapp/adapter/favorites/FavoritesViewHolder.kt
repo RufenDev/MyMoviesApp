@@ -1,6 +1,5 @@
 package com.example.mymoviesapp.adapter.favorites
 
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.mymoviesapp.R
@@ -58,7 +57,5 @@ class FavoritesViewHolder(view: View) : ViewHolder(view) {
                 )
             )
         }
-
-        Log.i("ññ", "${movie.isInFavorite} <- '${movie.title}' (${movie.position}) is in favorite?")
     }
 }

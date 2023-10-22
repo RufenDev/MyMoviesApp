@@ -10,7 +10,6 @@ import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
 import android.net.Uri
 import android.os.Environment.DIRECTORY_PICTURES
-import android.util.Log
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.animation.Animation
@@ -130,7 +129,6 @@ object MovieConstants {
             val btnOptions: AppCompatImageButton = detailsDialog.findViewById(R.id.btnDialogOptions)
             btnOptions.visibility = VISIBLE
             btnOptions.setOnClickListener {
-                Log.i("ññ", "DialogClick")
                 val popup = PopupMenu(context, it)
 
                 popup.inflate(R.menu.dialog_menu)
