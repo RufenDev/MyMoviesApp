@@ -37,7 +37,7 @@ En esta pantalla se muestra la información detalla de cada película selecciona
 
 | Detalles | Opciones | Elenco | Recomendados |
 | :------: | :------: | :----: | :----------: | 
-| <img align="center" width="200px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/3922d253-a65c-4514-8583-ae34cbdafbaa"/> | <img align="center" width="200px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/13872034-2764-433b-873d-a167cafbecaf"/> | <img align="center" width="200px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/1ec71a76-6546-4f8a-bcf3-1eb8c408dfdc"/> | <img align="center" width="200px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/b42e3ba2-f0c2-48ec-8688-946746343458"/> |
+| <img align="center" width="168px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/3922d253-a65c-4514-8583-ae34cbdafbaa"/> | <img align="center" width="168px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/13872034-2764-433b-873d-a167cafbecaf"/> | <img align="center" width="168px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/1ec71a76-6546-4f8a-bcf3-1eb8c408dfdc"/> | <img align="center" width="168px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/b42e3ba2-f0c2-48ec-8688-946746343458"/> |
 
 ## Descubrir más películas
 
@@ -53,4 +53,4 @@ Lista de películas favoritas, permitiendo ordenarlas de forma arbitraria, busca
 
 | Agregar | Lista | Filtrar | Eliminar |
 | :---: | :-----: | :-----: | :------: |
-| <img align="center" width="200px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/5eb0ab33-7516-44fa-9c4a-eb76c2de6f9c"/> | <img align="center" width="200px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/2b17309d-22a8-4689-9864-e87e399a59a7"/> | <img align="center" width="200px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/bcf42b9e-7252-4d7b-92c8-b53d6a3e8c85"/> | <img align="center" width="200px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/73f81416-22fe-4b34-a479-17d900547ccf"/> |
+| <img align="center" width="168px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/5eb0ab33-7516-44fa-9c4a-eb76c2de6f9c"/> | <img align="center" width="168px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/2b17309d-22a8-4689-9864-e87e399a59a7"/> | <img align="center" width="168px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/bcf42b9e-7252-4d7b-92c8-b53d6a3e8c85"/> | <img align="center" width="168px" src="https://github.com/RufenDev/MyMoviesApp/assets/147002806/73f81416-22fe-4b34-a479-17d900547ccf"/> |
