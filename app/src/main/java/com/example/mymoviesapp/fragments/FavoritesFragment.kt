@@ -50,7 +50,7 @@ class FavoritesFragment : Fragment() {
     private lateinit var roomDAO: FavoriteMovieDAO
 
     private lateinit var favoriteList: List<FavoriteMovie>
-    private var isFiltered: Boolean = false
+    private var filterText = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,19 +74,18 @@ class FavoritesFragment : Fragment() {
                 favoriteList = roomDAO.getFavoriteMovies()
 
                 withContext(Main) {
+                    filterList(filterText)
+
+                    delay(1000)
+                    binding.loadingFavorite.visibility = GONE
+
                     if (favoriteList.isEmpty()) {
-                        delay(1000)
                         binding.rvFavorites.visibility = GONE
-                        binding.loadingFavorite.visibility = GONE
                         binding.favoritesEmptyListScreen.root.visibility = VISIBLE
 
                     } else {
-                        adapter.updateFavoriteList(favoriteList)
-
-                        delay(1000)
-                        binding.favoritesEmptyListScreen.root.visibility = GONE
-                        binding.loadingFavorite.visibility = GONE
                         binding.rvFavorites.visibility = VISIBLE
+                        binding.favoritesEmptyListScreen.root.visibility = GONE
                     }
                 }
             }
@@ -127,23 +126,40 @@ class FavoritesFragment : Fragment() {
     }
 
     private fun addToFavorites(action: AddToFavorite) {
+//        Log.i("ññ", "")
+//        Log.i("ññ", "AddToFavorite -> add=${action.add}")
+//        Log.i("ññ", "Movie to Add = title=${action.movie.title}, position=${action.movie.position}, itWasInFavorite?=${action.movie.isInFavorite}")
+
         favoriteList.find { it.id == action.movie.id }?.isInFavorite = action.add
+
+//        Log.i("ññ", "FavoriteList before FavoriteChanged:${favoriteList.log()}")
     }
 
     private suspend fun saveFavoriteList() {
         if(::favoriteList.isInitialized){
-            val removeMovies = favoriteList.filter { !it.isInFavorite }.map { it.id }
-            roomDAO.removeMoviesByIds(removeMovies)
+//            Log.i("ññ", "")
+//            Log.i("ññ", "SAVE FAVORITE LIST")
+
+            val moviesToRemove = favoriteList.filter { !it.isInFavorite }
+
+//            Log.i("ññ", "Movies to remove from ROOM:${moviesToRemove.log()}")
+
+            val moviesID = moviesToRemove.map { it.id }
+            roomDAO.removeMoviesByIds(moviesID)
+
 
             favoriteList = favoriteList.filterNot { !it.isInFavorite }.sortAsc()
+//            Log.i("ññ", "Favorite list without removed movies:${favoriteList.log()}")
+
             roomDAO.updateFavoriteMovies(favoriteList)
         }
     }
 
     fun filterList(text: String) {
         if (::adapter.isInitialized) {
-            isFiltered = text.isNotEmpty()
-            if (isFiltered) {
+            filterText = text
+
+            if (text.isNotEmpty()) {
                 val filteredList =
                     favoriteList.filter { it.title.uppercase().contains(text.uppercase()) }
                 adapter.updateFavoriteList(filteredList)
@@ -256,7 +272,10 @@ class FavoritesFragment : Fragment() {
         override fun onSwiped(viewHolder: ViewHolder, direction: Int) {}
 
         override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: ViewHolder): Int {
-            return makeMovementFlags(if (isFiltered) 0 else UP or DOWN or START or END, 0)
+            return makeMovementFlags(
+                if (filterText.isNotEmpty()) 0
+                else UP or DOWN or START or END, 0
+            )
         }
     }
 }

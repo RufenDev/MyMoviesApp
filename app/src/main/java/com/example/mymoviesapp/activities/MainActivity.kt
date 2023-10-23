@@ -111,9 +111,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSearchBack.setOnClickListener {
             if (getCurrentFragment() is FavoritesFragment) {
+
                 hideKeyboard(binding.svSearchMovie)
                 binding.searchBarLayout.visibility = GONE
                 binding.layoutToolbarButtons.visibility = VISIBLE
+
+                binding.svSearchMovie.setQuery("", true)
 
             } else {
                 binding.bnvMenu.selectedItemId = R.id.homeFragment
@@ -152,6 +155,8 @@ class MainActivity : AppCompatActivity() {
                     hideKeyboard(binding.svSearchMovie)
                     binding.searchBarLayout.visibility = GONE
                     binding.layoutToolbarButtons.visibility = VISIBLE
+
+                    binding.svSearchMovie.setQuery("", true)
 
                 } else {
                     isEnabled = false
